@@ -9,21 +9,21 @@ HTML файловете се съставени от множество елем
     - `<title>` - отварящ таг с името, title, показва откъде започва елементът
     - A Title - съдържание на елемента
     - `</title>` - затварящ таг, съдържа името на елемента и / като представка на името.
-    - Влагане на елементи - в съдържанието на един елемент може да имаме друг елемент. <br> 
-    Пример:  `<p>My cat is <strong>grumpy</strong></p>` <br>
+    - Влагане на елементи - в съдържанието на един елемент може да имаме друг елемент.      
+    Пример:  `<p>My cat is <strong>grumpy</strong></p>`     
     Лош Пример:  `<p>My cat is <strong>grumpy</p></strong>`
 
 ## Видове Елементи
 - Блокови елементи - блоковите елементи формират видим блок на страницата. Те се появяват на нов ред след предходния блоков елемент. Или ако няма css магия, в началото на страницат в горния ляв ъгъл. 
 Блоковите елементи не се влагат в inline елементи
-<br>
-`<address><article><aside><blockquote><canvas><dd><div><dl><dt><fieldset><figcaption><figure><footer><form><h1>-<h6><header><hr><li><main><nav><noscript><ol><p><pre><section><table><tfoot><ul><video>`
+    
+Пример: `<address><article><aside><blockquote><canvas><dd><div><dl><dt><fieldset><figcaption><figure><footer><form><h1>-<h6><header><hr><li><main><nav><noscript><ol><p><pre><section><table><tfoot><ul><video>`
 - Inline елементи - те се съдържат обикновено в блоковите елементи, и заграждат някаква част от съдържанието на блоковия елемент. При тяхното използване не се добавят нови редове. Обикновено този тип тагове се използва за оформяне на текст и добавяне на някакъв допълнителен смисъл
-<br>
+    
 `<em><strong><а><span>`
 - Празни елементи - Някои елементи нямат съдържание, при тях важната информация се пази в атрибути. Този тип елементи не се нуждаят от затварящ таг. Въпреки това, добрата практика, която ще следваме ще бъде следната `<void-element />`, където void-element може да бъде който и да е празен таг.
-<br>
-Празни тагове: `<area><base><br><col><embed><hr><img><input><link><meta><source><track><wbr>`
+    
+Празни тагове: `<area><base>    <col><embed><hr><img><input><link><meta><source><track><wbr>`
 
 ## Атрибути
 Атрибутите носят допълнителна информация за елементите. Тази информация не се ренди директвно в браузъра.
@@ -35,3 +35,12 @@ HTML файловете се съставени от множество елем
  - meta -  съдържа метаинформация за самата страница
     - `<meta charset="uft-8">` - означава, че в станицата се поддържат текст, който може да бъде кодиран с utf8
     - `<link rel="stylesheet href="link-to-file.css">`
+
+## Css Materials
+- Selectors [Reference](https://www.w3schools.com/cssref/css_selectors.php) 
+- [Basic Tutorial](https://www.w3schools.com/css/css_selectors.asp) секцията Tutorial до псевдо класовете
+- [Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
+- [Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+- Стилизирайте си `recipes-list.html`
+- [FlexFroggy](https://flexboxfroggy.com/#bg) - игра за flex
+- [Grid Garden](https://cssgridgarden.com/#bg) - игра за grid

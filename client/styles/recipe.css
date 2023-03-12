@@ -1,0 +1,25 @@
+/* main h3 {
+    color: magenta;
+} */
+
+#example {
+    color: green;
+    /* font-style: unset; */
+}
+
+.an-example {
+    color: red;
+}
+
+section h3 {
+    color: magenta;
+}
+
+h3 {
+    color: aqua;
+    font-style: italic;
+}
+
+p+h3 {
+    background-color: cyan;
+}
