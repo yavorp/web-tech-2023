@@ -1,0 +1,18 @@
+table, th, td {
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+table {
+    width: 50%;
+}
+
+th, td {
+    padding: 5px;
+    margin: 5px
+}
+
+#movie-form {
+    margin: 20px;
+}
+

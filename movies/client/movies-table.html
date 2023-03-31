@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <!-- Main Task make a user Table with delete option -->
+        <!-- Add something background property change -->
+        <!--
+            This meta tag gives the browser instructions on how to control the page's dimensions and scaling.
+            The viewport is the user's visible area of a web page.
+            The viewport varies with the device, and will be smaller on a mobile phone than on a computer screen.
+            The width=device-width part sets the width of the page to follow the screen-width of the device.
+            The initial-scale=1.0 part sets the initial zoom level when the page is first loaded by the browser.
+        -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Movies</title>
+
+        <link rel='stylesheet' href='styles/movies-list.css' type='text/css' />
+        <script defer src="./js/index.js"></script>
+    </head>
+    <body>
+        <header id="top-bar">
+            <nav>
+                <a href='#'>Изход</a>
+                <a href='#'>Профил</a>
+                <a href='#'>Филм</a>
+            </nav>
+        </header>
+
+        <main>
+            <section id="main-content">
+                <header id="main-content-header">
+                    <h2>Филми</h2>
+                    <input id="search-bar" type="search" placeholder="Търси"/>
+                </header>
+
+            <h3>Форма за филми </h3> 
+            <form id="movie-form">
+                <label for="title">Заглавие:</label><br>
+                <input type="text" id="title" name="title"><br>
+                
+                <label for="year">Година на издаване:</label><br>
+                <input type="number" id="year" name="year"><br>
+                
+                <label for="genre">Жанр:</label><br>
+                <input type="text" id="genre" name="genre"><br>
+                
+                <label for="producer">Главен режисьор:</label><br>
+                <input type="text" id="producer" name="producer"><br>
+
+                <button id="form-submit">
+                    Добави
+                </button>
+            </form>
+
+                <article id="movie-list">
+                    <table id="movies-table">
+                        <caption>
+                            Таблица с филми
+                        </caption>
+                        <tr>
+                            <th>Заглавие</th>
+                            <th>Година на издаване</th>
+                            <th>Жанр</th>
+                            <th>Главен режисьор</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Titanic
+                            </td>
+                            <td>
+                                1996
+                            </td>
+                            <td>
+                                Drama
+                            </td>
+                            <td>
+                                James Cameron
+                            </td>
+                        </tr>
+                    </table>
+                </article>
+            </section>
+        </main>
+    </body>
+</html>
