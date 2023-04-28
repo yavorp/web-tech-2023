@@ -1,10 +1,24 @@
-import express, { Express, Request, Response } from 'express';
+import express, {Response, Request} from 'express';
+import bodyParser from 'body-parser';
+import userRouter from './router/user-router';
+import dotenv from 'dotenv';
+dotenv.config();
 
+const PORT = Number(process.env.SERVER_PORT || 8000);
 const app = express();
-app.get('/', (req, res) => {
-    res.send('Hello from the server');
+
+app.use(express.json());
+
+app.get('/', (request, response) => {
+    response.send('Hello from server');
 });
 
-app.listen(8000, () => {
-    console.log('Server is running at port 8000')
-})
+app.use('/user', userRouter);
+
+app.get('/movie', (request, response) => {
+    response.send('Movies endpoint');
+});
+
+app.listen(PORT, () => {
+    console.log(`Listen on port ${PORT}`);
+});
