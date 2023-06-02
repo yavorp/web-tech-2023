@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            Int       @id() @default(autoincrement())
+  email         String    @unique
+  name          String
+  password      String
+  createdMovies Movie[]   @relation("AddedBy")
+  likedMovies   Movie[]
+  Comment       Comment[]
+
+  @@index([name])
+}
+
+model Movie {
+  id       Int       @id() @default(autoincrement())
+  title    String
+  // in minutes
+  duration Int
+  language Languge
+  rating   Float?
+  addedBy  User      @relation("AddedBy", fields: [userId], references: [id])
+  likedBy  User[]
+  userId   Int
+  Comment  Comment[]
+}
+
+enum Genre {
+  Fantasy
+  Horror
+  Animation
+  Drama
+  Comedy
+  Romance
+}
+
+model Comment {
+  id      Int    @id() @default(autoincrement())
+  comment String
+  rating  Float?
+  leftBy  User   @relation(fields: [userId], references: [id])
+  leftOn  Movie  @relation(fields: [movieId], references: [id])
+  userId  Int
+  movieId Int
+
+  @@unique([userId, movieId])
+}
+
+enum Languge {
+  BG
+  EN
+  ES
+}

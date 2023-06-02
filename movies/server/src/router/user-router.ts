@@ -1,63 +1,22 @@
 import { Router, response } from 'express';
-
+import authService, { User } from '../service/auth-service';
 const router = Router();
-interface User {
-    id: number;
-    name: string
-}
 
-let lastId = 3;
-
-let users: User[] = [
-    {
-        id: 1,
-        name: 'Yavor'
-    },
-    {
-        id: 2,
-        name: 'Ivan'
-    },
-    {
-        id: 3,
-        name: 'Go6o'
-    }
-];
-
-router.get('/', (request, response) => {
-    const nameFilter = request.query.name;
-    if (nameFilter && typeof(nameFilter) === 'string') {
-        const result = users.filter(({ name }) => name === nameFilter);
-        response.json(result);
-    } else if(nameFilter && nameFilter instanceof Array) {
-        const parsedFilter = nameFilter as string[];
-        const result = users.filter(({ name }) => parsedFilter.find((n: string) => n === name));
-        if (result.length === 0) {
-            response.sendStatus(404);
-        }
-        response.json(result);
-    } else {
-        response.json(users);
-    }
-    console.log('Yavor');
+router.post('/register', async (req, res) => {
+    const data: User = req.body;
+    console.log(data);
+    const user = await authService.register(data);
+    res.json(user);
 });
 
-router.post('/', (req, res) => {
-    console.log(req.body);
-    const body = req.body;
-    if (body.name && body.name instanceof String) {
-        const user: User = {
-            name: body.name,
-            id: lastId
-        };
-        lastId ++;
-        users = [...users, user];
-        res.json(user).status(200);
+router.post('/login', async (req, res) => {
+    const data: {email: string, password: string} = req.body;
+    const user = await authService.login(data);
+    if (user) {
+        res.json(user);
     } else {
-        res.statusMessage = 'Missing namme';
-        res.status(400);
+        res.sendStatus(401);
     }
-    
 })
-
 
 export default router;
